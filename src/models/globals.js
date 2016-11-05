@@ -11,8 +11,12 @@ export default {
 
     },
     effects: {
-        *setMessage({ payload }, { put }) {
-            let message = payload.message
+        setMessage({ payload }, { put }) {
+            let message = payload.message || {
+                type: '',
+                title: '',
+                content: ''
+            }
             if (typeof message === 'string') {
                 message = {
                     type: 'success',
@@ -20,17 +24,11 @@ export default {
                     content: message
                 }
             }
-            yield put({
+            put({
                 type: 'setMessageSuccess',
                 payload: {
                     message
                 }
-            })
-        },
-        *clearMessage({ payload }, { put }) {
-            yield put({
-                type: 'clearMessageSuccess',
-                payload: {}
             })
         }
     },
@@ -41,15 +39,6 @@ export default {
                 ...state,
                 message: {
                     ...message
-                }
-            }
-        },
-        clearMessageSuccess() {
-            return {
-                message: {
-                    type: '',
-                    content: '',
-                    title: ''
                 }
             }
         }

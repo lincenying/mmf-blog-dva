@@ -22,8 +22,7 @@ export default class Toastr extends Component {
             toastrRefs[message.type](message.title, message.content, {
                 timeOut: 3000
             })
-            console.log(1)
-            dispatch({type: 'globals/clearMessage'})
+            dispatch({type: 'globals/setMessage'})
         }
     }
     render() {

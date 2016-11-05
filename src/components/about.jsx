@@ -4,7 +4,7 @@ const handleSlideToggle = () => {
     $(".m-about").slideToggle("800")
 }
 
-const Example = () => {
+const About = () => {
     return (
         <div>
             <div className="box m-tit">
@@ -25,6 +25,6 @@ const Example = () => {
     )
 }
 
-Example.propTypes = {}
+About.propTypes = {}
 
-export default Example
+export default About

@@ -7,12 +7,7 @@ export default {
         data: {},
         next: {},
         prev: {},
-        pathname: '',
-        comment: {
-            list: [],
-            hasNext: 0,
-            page: 1
-        }
+        pathname: ''
     },
     subscriptions: {
         setup({ dispatch, history }) {

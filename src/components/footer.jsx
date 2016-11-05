@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'dva/router'
 
-const Example = () => {
+const Footer = () => {
     return (
         <div className="g-ft">
             <span className="copy"><span title="Copyright">©</span> <Link to="index">M·M·F 小屋</Link> 2016.06</span>
@@ -10,6 +10,6 @@ const Example = () => {
     )
 }
 
-Example.propTypes = {}
+Footer.propTypes = {}
 
-export default Example
+export default Footer

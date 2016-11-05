@@ -1,20 +1,11 @@
 import React from 'react'
-import {connect} from 'dva'
 
-const Main = ({topics: {data}}) => {
+const Main = () => {
     return (
         <div className="normal">
-            <h1>Welcome to dva!</h1>
-            <hr />
-            <div dangerouslySetInnerHTML={{__html: data.content}} />
+            <h1>Welcome to M.M.M 小屋!</h1>
         </div>
     )
 }
 
-Main.propTypes = {}
-
-function mapStateToProps({ topics }) {
-    return { topics }
-}
-
-export default connect(mapStateToProps)(Main)
+export default Main

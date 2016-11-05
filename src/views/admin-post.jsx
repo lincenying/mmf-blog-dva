@@ -1,12 +1,11 @@
 import React from 'react'
 import {connect} from 'dva'
 
-const Main = ({topics: {data}}) => {
+const Main = () => {
     return (
         <div className="normal">
             <h1>Welcome to dva!</h1>
             <hr />
-            <div dangerouslySetInnerHTML={{__html: data.content}} />
         </div>
     )
 }

@@ -43,7 +43,7 @@ export default {
         },
         *postComment({ payload }, { call, put }) {
             if (payload.content === '') {
-                yield put({
+                put({
                     type: 'globals/setMessage',
                     payload: {
                         message: {

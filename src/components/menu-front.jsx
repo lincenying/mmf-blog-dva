@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link, browserHistory} from 'dva/router'
 
-const Example = () => {
+const MenuFront = () => {
     const handleSearch = e => {
         var qs = e.target.value
         if (e.keyCode === 13 && qs !== '') {
@@ -25,6 +25,6 @@ const Example = () => {
     )
 }
 
-Example.propTypes = {}
+MenuFront.propTypes = {}
 
-export default Example
+export default MenuFront
