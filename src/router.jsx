@@ -8,6 +8,7 @@ import NotFound from './views/404.jsx'
 import App from './views/app.jsx'
 import Main from './views/main.jsx'
 import Article from './views/article.jsx'
+import Login from './views/login.jsx'
 import AdminArticleList from './views/admin-list.jsx'
 import AdminArticlePost from './views/admin-post.jsx'
 import AdminArticleEdit from './views/admin-edit.jsx'
@@ -44,6 +45,7 @@ export default({history}) => {
                 <Route name="post" path="/admin/post" component={AdminArticlePost} />
                 <Route name="post" path="/admin/edit/:id/:page" component={AdminArticleEdit} />
             </Route>
+            <Route name="login" path="/login" component={Login} />
             <Route component={NotFound} path="*" />
         </Router>
     )
