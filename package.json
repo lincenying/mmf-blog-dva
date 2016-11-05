@@ -1,0 +1,33 @@
+{
+  "name": "cooking-mmf-blog-react",
+  "version": "1.0.0",
+  "description": "mmf-blog react版 (react,react-router,redux,immutable)",
+  "author": "lincenying",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.15.2",
+    "dva": "^1.1.0",
+    "immutable": "^3.8.1",
+    "js-cookie": "^2.1.3",
+    "nprogress": "^0.2.0",
+    "path-to-regexp": "^1.5.3",
+    "qs": "^6.3.0",
+    "react": "^15.3.1",
+    "react-addons-css-transition-group": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-immutable-render-mixin": "^0.9.7",
+    "react-toastr": "^2.8.1",
+    "store2": "^2.3.2"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.0.1"
+  },
+  "directories": {},
+  "optionalDependencies": {
+    "fsevents": "1.0.14"
+  },
+  "scripts": {
+    "dev": "cooking watch -p",
+    "dist": "cooking build -p"
+  }
+}

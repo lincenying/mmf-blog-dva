@@ -1,0 +1,6 @@
+{
+    "extends": "lcy-react",
+    "rules": {
+        "react/require-optimization": 0
+    }
+}
