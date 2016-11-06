@@ -33,11 +33,11 @@ function checkStatus(response) {
 }
 
 export function request(config) {
-    return axios.request(config)
+    return axios.request(config).then(checkStatus)
 }
 
 export function get(url, config) {
-    return axios.get(url, config)
+    return axios.get(url, config).then(checkStatus)
 }
 
 export function post(url, data, config) {

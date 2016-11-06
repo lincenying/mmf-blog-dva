@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'dva'
 import Toastr from '../components/_toastr.jsx'
 
-import '../html/css/login.css'
+import '../assets/css/login.css'
 
 @connect()
 class Login extends Component {

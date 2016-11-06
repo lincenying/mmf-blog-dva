@@ -5,10 +5,10 @@ import MenuFront from '../components/menu-front.jsx'
 import MenuAdmin from '../components/menu-admin.jsx'
 import Arrow from '../components/arrow.jsx'
 import Toastr from '../components/_toastr.jsx'
-import '../html/css/style.css'
-import '../html/css/nprogress.css'
-import '../html/css/animate.min.css'
-import '../html/css/toastr.min.css'
+import '../assets/css/style.css'
+import '../assets/css/nprogress.css'
+import '../assets/css/animate.min.css'
+import '../assets/css/toastr.min.css'
 
 const App = props => {
     const {route: {needLogin}} = props
