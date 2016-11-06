@@ -19,7 +19,7 @@ export default class Toastr extends Component {
         const oldMessage = prevProps.message
         if (message.type !== '' && oldMessage.type === '') {
             const toastrRefs = this.container
-            toastrRefs[message.type](message.title, message.content, {
+            toastrRefs[message.type](message.content, '', {
                 timeOut: 3000
             })
             dispatch({type: 'globals/setMessage'})

@@ -20,6 +20,18 @@ axios.interceptors.response.use(response => {
     return Promise.reject(error)
 })
 
+function checkStatus(response) {
+    if (response.status >= 200 && response.status < 300) {
+        return response
+    }
+    return {
+        data: {
+            code: -200,
+            message: response.statusText
+        }
+    }
+}
+
 export function request(config) {
     return axios.request(config)
 }
@@ -29,5 +41,5 @@ export function get(url, config) {
 }
 
 export function post(url, data, config) {
-    return axios.post(url, data, config)
+    return axios.post(url, data, config).then(checkStatus)
 }

@@ -43,14 +43,11 @@ export default {
         },
         *postComment({ payload }, { call, put }) {
             if (payload.content === '') {
-                put({
+                yield put({
                     type: 'globals/setMessage',
                     payload: {
-                        message: {
-                            type: 'error',
-                            title: '',
-                            content: '请输入评论内容'
-                        }
+                        type: 'error',
+                        content: '请输入评论内容'
                     }
                 })
             } else {
@@ -64,9 +61,7 @@ export default {
                     })
                     yield put({
                         type: 'globals/setMessage',
-                        payload: {
-                            message: '评论发表成功'
-                        }
+                        payload: '评论发表成功'
                     })
                 }
             }
