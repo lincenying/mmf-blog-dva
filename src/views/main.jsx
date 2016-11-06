@@ -5,15 +5,15 @@ import {propTypes} from '../decorators'
 import MainItem from "../components/main-item.jsx"
 import Footer from '../components/footer.jsx'
 
-function mapStateToProps(state) {
+function mapStateToProps({topics}) {
     return {
-        posts: state.topics
+        topics
     }
 }
 
 @connect(mapStateToProps)
 @propTypes({
-    posts: PropTypes.object
+    topics: PropTypes.object
 })
 export default class Main extends Component {
     constructor(props) {
@@ -26,12 +26,12 @@ export default class Main extends Component {
         window.scrollTo(0, scrollTop)
     }
     handleLoadMore() {
-        const {curpage} = this.props.posts
+        const {curpage} = this.props.topics
         const {pathname} = this.props.location
         this.props.dispatch({type: 'topics/query', payload: { page: curpage + 1, pathname }})
     }
     render() {
-        const {list, hasNext} = this.props.posts
+        const {list, hasNext} = this.props.topics
         const lists = list.map(list => {
             return (
                 <MainItem key={list._id} list={list} />

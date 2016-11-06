@@ -3,8 +3,8 @@ import {connect} from 'dva'
 import {propTypes} from '../decorators'
 import CommentItem from "../components/comment-item.jsx"
 
-function mapStateToProps(state) {
-    return {comment: state.comment}
+function mapStateToProps({comment}) {
+    return { comment }
 }
 
 @connect(mapStateToProps)

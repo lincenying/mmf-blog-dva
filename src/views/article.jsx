@@ -40,7 +40,9 @@ const Article = ({article, location: { pathname }, params: { id }}) => {
     )
 }
 
-Article.propTypes = {}
+Article.propTypes = {
+    article: React.PropTypes.object
+}
 
 function mapStateToProps({ article }) {
     return { article }
