@@ -7,6 +7,7 @@ import globals from './models/globals'
 import topics from './models/topics'
 import article from './models/article'
 import comment from './models/comment'
+import admin from './models/admin'
 
 // 1. Initialize
 const app = dva({
@@ -24,6 +25,7 @@ app.model(globals)
 app.model(topics)
 app.model(article)
 app.model(comment)
+app.model(admin)
 
 // 4. Router
 app.router(router)

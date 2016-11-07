@@ -41,7 +41,7 @@ export default({history}) => {
                 <Route name="article" path="/article/:id" component={Article} onEnter={goScrollTop} />
             </Route>
             <Route name="admin" needLogin="1" path="/admin" onEnter={checkLogin} component={App}>
-                <Route name="list" path="/admin/list(/:page)" component={AdminArticleList} />
+                <Route name="list" path="/admin/list/:page" component={AdminArticleList} />
                 <Route name="post" path="/admin/post" component={AdminArticlePost} />
                 <Route name="post" path="/admin/edit/:id/:page" component={AdminArticleEdit} />
             </Route>

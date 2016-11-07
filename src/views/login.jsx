@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'dva'
+import {browserHistory} from 'dva/router'
+import { login } from '../services/login'
 import Toastr from '../components/_toastr.jsx'
 
 import '../assets/css/login.css'
@@ -25,7 +27,38 @@ class Login extends Component {
     }
     handleSubmit(e) {
         e.preventDefault()
-        this.props.dispatch({type: `globals/login`, payload: this.state})
+        const {username, password} = this.state
+        if (username === '' || password === '') {
+            this.props.dispatch({
+                type: 'globals/setMessage',
+                payload: {
+                    type: 'error',
+                    content: '请输入用户密和密码'
+                }
+            })
+            return
+        }
+        login({
+            ...this.state
+        }).then(({data}) => {
+            if (data.code === 200) {
+                this.props.dispatch({
+                    type: 'globals/setMessage',
+                    payload: '登录成功'
+                })
+                setTimeout( () => {
+                    browserHistory.push('/admin/list/1')
+                }, 500)
+            } else {
+                this.props.dispatch({
+                    type: 'globals/setMessage',
+                    payload: {
+                        type: 'error',
+                        content: data.message
+                    }
+                })
+            }
+        })
     }
     render() {
         return (
