@@ -1,8 +1,9 @@
 /* eslint-disable */
 
-var path = require('path');
-var cooking = require('cooking');
-var webpack = require('webpack');
+var path = require('path')
+var cooking = require('cooking')
+var webpack = require('webpack')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 cooking.set({
     entry: {
@@ -57,5 +58,15 @@ if (process.env.NODE_ENV === 'production') {
     cooking.add('plugin.CommonsChunk', new webpack.optimize.CommonsChunkPlugin({
         names: ["vendor", "manifest"]
     }))
+    cooking.add('plugin.CopyWebpackPlugin', new CopyWebpackPlugin([{
+        from: 'favicon.ico',
+        to: path.join(__dirname, 'dist')
+    },{
+        from: {
+            glob:'static/editor.md/**/*',
+            dot: true
+        },
+        to: path.join(__dirname, 'dist')
+    }]))
 }
 module.exports = cooking.resolve()
