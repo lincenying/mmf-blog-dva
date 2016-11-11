@@ -22,7 +22,7 @@ const Article = ({article, location: { pathname }, params: { id }}) => {
                     <div className="cont cont-1">
                         <div className="text">
                             <h2><Link to={`/article/${article.data._id}`}>{article.data.title}</Link></h2>
-                            <div className="markdown-body" dangerouslySetInnerHTML={{__html: article.data.content}} />
+                            <div className="markdown-body" dangerouslySetInnerHTML={{__html: article.data.html}} />
                         </div>
                     </div>
                     <div className="info info-1" />

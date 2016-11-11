@@ -4,6 +4,10 @@ abbrev@1:
   version "1.0.9"
   resolved "http://registry.npm.taobao.org/abbrev/download/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
 
+animate.css:
+  version "3.5.2"
+  resolved "http://registry.npm.taobao.org/animate.css/download/animate.css-3.5.2.tgz#91e668dc069a808e5e499514867b97aae0166c36"
+
 ansi-regex@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/ansi-regex/download/ansi-regex-2.0.0.tgz#c5061b6e0ef8a81775e50f5d66151bf6bf371107"
@@ -463,7 +467,7 @@ iconv-lite@~0.4.13:
   version "0.4.13"
   resolved "http://registry.npm.taobao.org/iconv-lite/download/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
 
-immutable, immutable@^3.7.6:
+immutable@^3.7.6:
   version "3.8.1"
   resolved "http://registry.npm.taobao.org/immutable/download/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
@@ -808,10 +812,6 @@ react-addons-css-transition-group@^15.3.1:
   version "15.3.2"
   resolved "http://registry.npm.taobao.org/react-dom/download/react-dom-15.3.2.tgz#c46b0aa5380d7b838e7a59c4a7beff2ed315531f"
 
-react-immutable-render-mixin:
-  version "0.9.7"
-  resolved "http://registry.npm.taobao.org/react-immutable-render-mixin/download/react-immutable-render-mixin-0.9.7.tgz#fe34053760cc72e7becc8af3e6e30542d97d3601"
-
 react-redux@4.4.x:
   version "4.4.5"
   resolved "http://registry.npm.taobao.org/react-redux/download/react-redux-4.4.5.tgz#f509a2981be2252d10c629ef7c559347a4aec457"
@@ -1023,6 +1023,10 @@ tar@~2.2.1:
     block-stream "*"
     fstream "^1.0.2"
     inherits "2"
+
+toastr:
+  version "2.1.2"
+  resolved "http://registry.npm.taobao.org/toastr/download/toastr-2.1.2.tgz#fd69066ae7578a5b3357725fc9c7c335e9b681df"
 
 tough-cookie@~2.3.0:
   version "2.3.2"

@@ -6,9 +6,9 @@ import MenuAdmin from '../components/menu-admin.jsx'
 import Arrow from '../components/arrow.jsx'
 import Toastr from '../components/_toastr.jsx'
 import '../assets/css/style.css'
-import '../assets/css/nprogress.css'
-import '../assets/css/animate.min.css'
-import '../assets/css/toastr.min.css'
+import 'nprogress/nprogress.css'
+import 'animate.css/animate.min.css'
+import 'toastr/build/toastr.min.css'
 
 const App = props => {
     const {route: {needLogin}} = props

@@ -31,7 +31,7 @@ export default class MainItem extends Component {
                 <div className="cont cont-1">
                     <div className="text">
                         <h2><Link to={`/article/${item._id}`}>{item.title}</Link></h2>
-                        <div className={!this.state.showMore ? "markdown-body showless" : "markdown-body"} dangerouslySetInnerHTML={{__html: item.content}} />
+                        <div className={!this.state.showMore ? "markdown-body showless" : "markdown-body"} dangerouslySetInnerHTML={{__html: item.html}} />
                         <div className="more-less">{btn}</div>
                     </div>
                 </div>
