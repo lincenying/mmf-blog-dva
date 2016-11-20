@@ -1,44 +1,38 @@
-import {post} from '../utils/request'
+import {get, post} from '../utils/request'
 
 export function posts(config) {
-    return post('/api/', {
-        action: 'getAdminArticle',
+    return get('/api/admin/topics', {
         limit: 20,
         ...config
     })
 }
 
 export function article(config) {
-    return post('/api/', {
-        action: 'getArticle',
+    return post('/api/admin/article', {
         ...config
     })
 }
 
 export function add(config) {
-    return post('/api/', {
-        action: 'post',
+    return post('/api/admin/article/post', {
         ...config
     })
 }
 
 export function edit(config) {
-    return post('/api/', {
-        action: 'modify',
+    return post('/api/admin/article/modify', {
         ...config
     })
 }
 
 export function deletes(config) {
-    return post('/api/', {
-        action: 'delete',
+    return post('/api/admin/article/delete', {
         ...config
     })
 }
 
 export function recovers(config) {
-    return post('/api/', {
-        action: 'recover',
+    return post('/api/admin/article/recover', {
         ...config
     })
 }
