@@ -8,7 +8,7 @@ export function posts(config) {
 }
 
 export function article(config) {
-    return post('/api/admin/article', {
+    return get('/api/admin/article', {
         ...config
     })
 }
@@ -26,13 +26,13 @@ export function edit(config) {
 }
 
 export function deletes(config) {
-    return post('/api/admin/article/delete', {
+    return get('/api/admin/article/delete', {
         ...config
     })
 }
 
 export function recovers(config) {
-    return post('/api/admin/article/recover', {
+    return get('/api/admin/article/recover', {
         ...config
     })
 }

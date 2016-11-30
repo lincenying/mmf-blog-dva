@@ -1,5 +1,6 @@
 import pathToRegexp from 'path-to-regexp'
 import { comment, postComment } from '../services/comment'
+import toastr from '../utils/toastr'
 
 export default {
     namespace: 'comment',
@@ -43,12 +44,9 @@ export default {
         },
         *postComment({ payload }, { call, put }) {
             if (payload.content === '') {
-                yield put({
-                    type: 'globals/setMessage',
-                    payload: {
-                        type: 'error',
-                        content: '请输入评论内容'
-                    }
+                yield call(toastr, {
+                    type: 'error',
+                    content: '请输入评论内容'
                 })
             } else {
                 const { data } = yield call(postComment, payload)
@@ -59,9 +57,9 @@ export default {
                             list: [data.data]
                         }
                     })
-                    yield put({
-                        type: 'globals/setMessage',
-                        payload: '评论发表成功'
+                    yield call(toastr, {
+                        type: 'sussess',
+                        content: '评论发表成功'
                     })
                 }
             }

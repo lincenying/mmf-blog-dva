@@ -21,23 +21,21 @@ axios.interceptors.response.use(response => {
 })
 
 function checkStatus(response) {
-    if (response.status >= 200 && response.status < 300) {
-        return response
+    if (response.status === 200 || response.status === 304) {
+        if (+response.data.code === 200) return response
+        else throw new Error(response.data.message) // eslint-disable-line
     }
-    return {
-        data: {
-            code: -200,
-            message: response.statusText
-        }
-    }
+    throw new Error(response.statusText) // eslint-disable-line
 }
 
 export function request(config) {
     return axios.request(config).then(checkStatus)
 }
 
-export function get(url, config) {
-    return axios.get(url, config).then(checkStatus)
+export function get(url, params) {
+    return axios.get(url, {
+        params
+    }).then(checkStatus)
 }
 
 export function post(url, data, config) {

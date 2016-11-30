@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'dva'
 import {browserHistory} from 'dva/router'
 import { login } from '../services/login'
-import Toastr from '../components/_toastr.jsx'
+import toastr from '../utils/toastr'
 
 import '../assets/css/login.css'
 
@@ -29,34 +29,19 @@ class Login extends Component {
         e.preventDefault()
         const {username, password} = this.state
         if (username === '' || password === '') {
-            this.props.dispatch({
-                type: 'globals/setMessage',
-                payload: {
-                    type: 'error',
-                    content: '请输入用户密和密码'
-                }
-            })
+            toastr('请输入用户密和密码', 'error')
             return
         }
         login({
             ...this.state
         }).then(({data}) => {
             if (data.code === 200) {
-                this.props.dispatch({
-                    type: 'globals/setMessage',
-                    payload: '登录成功'
-                })
+                toastr('登录成功')
                 setTimeout( () => {
                     browserHistory.push('/admin/list/1')
                 }, 500)
             } else {
-                this.props.dispatch({
-                    type: 'globals/setMessage',
-                    payload: {
-                        type: 'error',
-                        content: data.message
-                    }
-                })
+                toastr(data.message, 'error')
             }
         })
     }
@@ -77,7 +62,6 @@ class Login extends Component {
                         <p className="submit"><input type="submit" value="登录" /></p>
                     </form>
                 </div>
-                <Toastr />
             </section>
         )
     }

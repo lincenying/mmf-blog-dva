@@ -3,6 +3,7 @@ import {connect} from 'dva'
 import {browserHistory} from 'dva/router'
 import { edit } from '../services/admin'
 import {propTypes} from '../decorators'
+import toastr from '../utils/toastr'
 
 function mapStateToProps(state) {
     return {
@@ -63,32 +64,17 @@ export default class AdminArticleEdit extends Component {
         // eslint-disable-next-line
         const content = editEditor.getMarkdown()
         if (title === '' || category === '' || content === '') {
-            this.props.dispatch({
-                type: 'globals/setMessage',
-                payload: {
-                    type: 'error',
-                    content: '请将表单填写完整!'
-                }
-            })
+            toastr('请将表单填写完整', 'error')
             return false
         }
         edit({
             id, title, category, content
         }).then(({data}) => {
             if (data.code === 200) {
-                this.props.dispatch({
-                    type: 'globals/setMessage',
-                    payload: '编辑成功'
-                })
+                toastr('编辑成功')
                 browserHistory.push(`/admin/list/${page}`)
             } else {
-                this.props.dispatch({
-                    type: 'globals/setMessage',
-                    payload: {
-                        type: 'error',
-                        content: data.message
-                    }
-                })
+                toastr(data.message, 'error')
             }
         })
     }

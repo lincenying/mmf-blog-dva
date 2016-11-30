@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'dva'
 import {browserHistory} from 'dva/router'
 import { add } from '../services/admin'
+import toastr from '../utils/toastr'
 
 @connect()
 export default class AdminArticlePost extends Component {
@@ -45,32 +46,17 @@ export default class AdminArticlePost extends Component {
         // eslint-disable-next-line
         const content = articleEditor.getMarkdown()
         if (title === '' || category === '' || content === '') {
-            this.props.dispatch({
-                type: 'globals/setMessage',
-                payload: {
-                    type: 'error',
-                    content: '请将表单填写完整!'
-                }
-            })
+            toastr('请将表单填写完整', 'error')
             return false
         }
         add({
             title, category, content
         }).then(({data}) => {
             if (data.code === 200) {
-                this.props.dispatch({
-                    type: 'globals/setMessage',
-                    payload: '发布成功'
-                })
+                toastr('发布成功')
                 browserHistory.push('/admin/list')
             } else {
-                this.props.dispatch({
-                    type: 'globals/setMessage',
-                    payload: {
-                        type: 'error',
-                        content: data.message
-                    }
-                })
+                toastr(data.message, 'error')
             }
         })
     }

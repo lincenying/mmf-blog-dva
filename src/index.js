@@ -8,12 +8,13 @@ import topics from './models/topics'
 import article from './models/article'
 import comment from './models/comment'
 import admin from './models/admin'
+import toastr from './utils/toastr'
 
 // 1. Initialize
 const app = dva({
     history: browserHistory,
     onError(error) {
-        console.error(error.stack)
+        toastr(error.toString(), 'error')
     },
 })
 
